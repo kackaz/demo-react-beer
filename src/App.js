@@ -15,11 +15,17 @@ class App extends Component {
     }
   }
 
+  handleAddBeer (name) {
+    this.setState({
+      beers: this.state.beers.concat({id: this.state.beers.length+1, name: name})
+    })
+  }
+
   render() {
     return (
       <div align="center">
         <h1>My Beer</h1>
-        <AddBeer/>
+        <AddBeer onAdd={this.handleAddBeer.bind(this)}/>
         <BeerList beers={this.state.beers} />
       </div>
     );
