@@ -4,9 +4,13 @@ class BeerList extends Component {
   render() {
     return (
       <div>
-        <p>IPA</p>
-        <p>LAGER</p>
-        <p>Stout</p>
+      {
+        this.props.beers.map(beer => (
+          <p key={beer.id}>
+            {beer.name}
+          </p>
+        ))
+      }
       </div>
     );
   }
